@@ -1,0 +1,194 @@
+/* --- 1. GLOBAL RESET & VARIABLES --- */
+:root {
+    --primary: #4f46e5;      /* Modern Indigo */
+    --primary-hover: #4338ca;
+    --success-bg: #ecfdf5;   /* Light Green */
+    --success-text: #065f46; /* Dark Green */
+    --error: #dc2626;        /* Red */
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --bg-body: #f8fafc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Allows scrolling if forms are long */
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* --- 2. FORM BOX DESIGN --- */
+.form-box {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--text-main);
+}
+
+/* --- 3. INPUT GROUPS & PASSWORD WRAPPER --- */
+.input-group {
+    margin-bottom: 18px;
+    position: relative;
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-muted);
+}
+
+input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-password-btn {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-password-btn:hover {
+    color: var(--primary);
+}
+
+/* --- 4. SUCCESS BANNER STYLING --- */
+.success-banner {
+    background-color: var(--success-bg);
+    color: var(--success-text);
+    border: 1px solid #10b981;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    animation: slideDown 0.4s ease-out;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 5. VALIDATION TEXT & REQUIREMENTS --- */
+.error-text {
+    color: var(--error);
+    font-size: 0.75rem;
+    margin-top: 5px;
+    display: none; /* Controlled by JS */
+}
+
+.requirements-container {
+    margin-top: 10px;
+    padding: 10px;
+    background: #f1f5f9;
+    border-radius: 6px;
+    display: none; /* Controlled by JS focus */
+}
+
+.requirements-container p {
+    font-size: 0.75rem;
+    margin: 4px 0;
+    transition: color 0.3s ease;
+}
+
+.show-msg {
+    display: block !important;
+}
+
+.invalid { color: #94a3b8; } /* Gray when not met */
+.valid { color: var(--success-text); font-weight: bold; } /* Green when met */
+
+/* --- 6. BUTTONS --- */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Simple Table Styling for Admin Page */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    background-color: #f1f5f9;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}

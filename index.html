@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Authentication System</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+
+        <section class="form-box">
+            
+            <div id="registrationSuccess" class="success-banner" style="display: none;">
+                <i class="fa-solid fa-circle-check"></i>
+                Registration successful! You can now log in.
+            </div>
+
+            <h2>Create Account</h2>
+            <form id="registrationForm" action="register.php" method="POST" novalidate>
+                
+                <div class="input-group">
+                    <label for="regUsername">Full Name</label>
+                    <input type="text" name="username" id="regUsername" required placeholder="Enter your name">
+                </div>
+
+                <div class="input-group">
+                    <label for="regEmail">Email Address</label>
+                    <input type="email" name="email" id="regEmail" required placeholder="enter your email">
+                    <p id="emailError" class="error-text">Please enter a valid email address.</p>
+                </div>
+
+                <div class="input-group">
+                    <label for="regPassword">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" name="password" id="regPassword" required placeholder="••••••••">
+                        <button type="button" class="toggle-password-btn" tabindex="-1">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                    
+                    <div id="passwordRequirements" class="requirements-container">
+                        <p id="reqUpper" class="invalid">● One uppercase letter</p>
+                        <p id="reqSpecial" class="invalid">● One special character</p>
+                        <p id="reqLength" class="invalid">● At least 8 characters</p>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">Register Now</button>
+            </form>
+        </section>
+
+        <section class="form-box">
+            <h2>Login</h2>
+            <form id="loginForm" action="login.php" method="POST">
+                
+                <div class="input-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" name="email" id="loginEmail" required placeholder="Enter your email">
+                </div>
+
+                <div class="input-group">
+                    <label for="loginPassword">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" name="password" id="loginPassword" required placeholder="••••••••">
+                        <button type="button" class="toggle-password-btn" tabindex="-1">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
